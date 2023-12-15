@@ -173,5 +173,6 @@ class Bot(Post):
             xlsx,
             f"Foydalanuvchilar: {User.objects.count()}\n"
             f"Ro'yxatdan o'tgan: {User.objects.filter(is_registered=True).count()}",
+            filename="users.xlsx"
         )
         return await self.start(update, context)
