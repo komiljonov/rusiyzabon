@@ -13,7 +13,7 @@ class User(models.Model):
     chat_id = models.BigIntegerField(primary_key=True, unique=True)
 
     fullname = models.CharField(max_length=512)
-    username = models.CharField(max_length=255, null=True, blak=True)
+    username = models.CharField(max_length=255, null=True, blank=True)
 
     name = models.CharField(max_length=255)
     number = models.CharField(max_length=255)
