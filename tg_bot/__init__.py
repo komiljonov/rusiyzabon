@@ -101,7 +101,7 @@ class Bot(Post):
         user.save()
 
         await tgUser.send_message("Raqamingizni yuboring.")
-        return NAME
+        return NUMBER
 
     async def number(self, update: Update, context: CallbackContext):
         tgUser, user, tmp = User.get(update)
