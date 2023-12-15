@@ -20,7 +20,7 @@ from constants import CHECK, EXCLUDE, MENU, NAME, NUMBER, PASSWORD
 from tg_bot.post import Post
 from utils import ReplyKeyboardMarkup
 from django.core.files.base import File
-
+from django.utils.timezone import now
 
 class Bot(Post):
     bot: ExtBot
@@ -141,6 +141,7 @@ class Bot(Post):
 
         user.check_file = f
         user.is_registered = True
+        user.registered_at = now()
         user.save()
 
         await self.bot.send_photo(
