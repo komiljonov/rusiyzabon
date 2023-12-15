@@ -172,6 +172,6 @@ class Bot(Post):
         await tgUser.send_document(
             xlsx,
             f"Foydalanuvchilar: {User.objects.count()}\n"
-            f"Ro'yxatdan o'tgan: {User.objects.filter(id_registered=True).count()}",
+            f"Ro'yxatdan o'tgan: {User.objects.filter(is_registered=True).count()}",
         )
         return await self.start(update, context)
