@@ -1,5 +1,6 @@
 from io import BytesIO
 from telegram import (
+    KeyboardButton,
     ReplyKeyboardRemove,
     Update,
 )
@@ -84,7 +85,7 @@ class Bot(Post):
                             "Leadlar",
                             "Post yuborish",
                         ]
-                    ]
+                    ],False
                 ),
             )
             return MENU
@@ -104,7 +105,11 @@ class Bot(Post):
         user.name = update.message.text
         user.save()
 
-        await tgUser.send_message("Raqamingizni yuboring.")
+        await tgUser.send_message("Raqamingizni yuboring.",reply_markup=ReplyKeyboardMarkup([
+            [
+                KeyboardButton("Raqamni yuborish",request_contact=True)
+            ]
+        ]))
         return NUMBER
 
     async def number(self, update: Update, context: CallbackContext):
