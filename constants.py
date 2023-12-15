@@ -9,7 +9,7 @@ GROUP_ID = ""
 BACK = "🔙"
 
 
-EXCLUDE = Text(["/start", f"/start {PASSWORD}", BACK])
+EXCLUDE = ~Text(["/start", f"/start {PASSWORD}", BACK])
 
 
 NAME = "NAME"
