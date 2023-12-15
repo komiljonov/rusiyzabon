@@ -2,11 +2,10 @@ from telegram.ext.filters import Text
 
 
 PASSWORD = "777jSH"
-GROUP_ID = ""
 
 
 
-BACK = "🔙"
+BACK = "🔙 Ortga"
 
 
 EXCLUDE = ~Text(["/start", f"/start {PASSWORD}", BACK])
