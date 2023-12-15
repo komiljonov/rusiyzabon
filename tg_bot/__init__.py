@@ -73,11 +73,7 @@ class Bot(Post):
                 user.admin = True
                 user.save()
 
-        if not user.is_registered:
-            await tgUser.send_message(
-                "Iltimos ismingizni yuboring.", reply_markup=ReplyKeyboardRemove()
-            )
-            return NAME
+
 
         if user.admin:
             await tgUser.send_message(
@@ -92,6 +88,14 @@ class Bot(Post):
                 ),
             )
             return MENU
+
+        if not user.is_registered:
+            await tgUser.send_message(
+                "Iltimos ismingizni yuboring.", reply_markup=ReplyKeyboardRemove()
+            )
+            return NAME
+
+        await tgUser.send_message("Siz ro'yxatdan o'tib bo'lgansiz.")
         return -1
 
     async def name(self, update: Update, context: CallbackContext):
