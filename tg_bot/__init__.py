@@ -79,7 +79,7 @@ class Bot(Post):
             )
             return NAME
 
-        if not user.admin:
+        if user.admin:
             await tgUser.send_message(
                 "Menu.",
                 reply_markup=ReplyKeyboardMarkup(
