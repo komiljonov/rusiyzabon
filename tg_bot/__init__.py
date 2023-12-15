@@ -49,7 +49,7 @@ class Bot(Post):
                     ],
                     CHECK: [MessageHandler(filters.PHOTO, self.check)],
                     MENU: [
-                        MessageHandler(filters.Text(["Leadlar"], self.leads)),
+                        MessageHandler(filters.Text(["Leadlar"]), self.leads),
                         self.postHandlers(),
                     ],
                 },
