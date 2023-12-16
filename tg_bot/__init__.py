@@ -23,6 +23,7 @@ from utils import ReplyKeyboardMarkup
 from django.core.files.base import File
 from django.utils.timezone import now
 
+
 class Bot(Post):
     bot: ExtBot
 
@@ -74,8 +75,6 @@ class Bot(Post):
                 user.admin = True
                 user.save()
 
-
-
         if user.admin:
             await tgUser.send_message(
                 "Menu.",
@@ -85,18 +84,22 @@ class Bot(Post):
                             "Leadlar",
                             "Post yuborish",
                         ]
-                    ],False
+                    ],
+                    False,
                 ),
             )
             return MENU
 
         if not user.is_registered:
             await tgUser.send_message(
-                "Iltimos ismingizni yuboring.", reply_markup=ReplyKeyboardRemove()
+                "🖊 Iltimos ismingizni yuboring!", reply_markup=ReplyKeyboardRemove()
             )
             return NAME
 
-        await tgUser.send_message("Siz ro'yxatdan o'tib bo'lgansiz.")
+        await tgUser.send_message(
+            "Qaytadan  ro'yxatdan o'tmoqchi bo'sa 👇\n\n"
+            "❌ Qaytadan ro'yxatdan o'tib bo'lmaydi\n\n"
+            "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manager")
         return -1
 
     async def name(self, update: Update, context: CallbackContext):
@@ -105,11 +108,12 @@ class Bot(Post):
         user.name = update.message.text
         user.save()
 
-        await tgUser.send_message("Raqamingizni yuboring.",reply_markup=ReplyKeyboardMarkup([
-            [
-                KeyboardButton("Raqamni yuborish",request_contact=True)
-            ]
-        ]))
+        await tgUser.send_message(
+            "📞 Sizga qo'ng'iroq qilishimiz uchun raqamingizni qoldiring!",
+            reply_markup=ReplyKeyboardMarkup(
+                [[KeyboardButton("Raqamni yuborish", request_contact=True)]]
+            ),
+        )
         return NUMBER
 
     async def number(self, update: Update, context: CallbackContext):
@@ -129,7 +133,7 @@ class Bot(Post):
         # await tgUser.send_message("https://youtu.be/s0jYB3v3k0M")
 
         await tgUser.send_message(
-            "Iltimos to'lov haqida checkni yuboring.",
+            "📩 To'lovni tasdiqlovchi chekni yuboring!",
             reply_markup=ReplyKeyboardRemove(),
         )
 
@@ -161,7 +165,13 @@ class Bot(Post):
             f"Vaqt: {user.registered_at.strftime('%d/%m/%Y, %H:%M:%S')}",
         )
 
-        await tgUser.send_message("Siz muvaffaqiyatli ro'yxatdan o'tdingiz.")
+        await tgUser.send_message(
+            "Tabriklayman 🥳\n\n"
+            "Siz `Rus tilida 2024-yilda gapiring!` nomli kursimga muavvafaqiyatli ro'yxatdan o'tdingiz. Tez orada menejerlar sizni chekingizni tekshirib, aloqaga chiqadi 🧑🏻‍💻.\n\n"
+            "Savollaringiz bo'lsa yozishingiz mumkin 👇😊\n\n"
+            "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manage
+        r",)
+
         return -1
 
     async def leads(self, update: Update, context: CallbackContext):
@@ -173,6 +183,6 @@ class Bot(Post):
             xlsx,
             f"Foydalanuvchilar: {User.objects.count()}\n"
             f"Ro'yxatdan o'tgan: {User.objects.filter(is_registered=True).count()}",
-            filename="users.xlsx"
+            filename="users.xlsx",
         )
         return await self.start(update, context)
