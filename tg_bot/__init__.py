@@ -168,7 +168,7 @@ class Bot(Post):
         await tgUser.send_message(
             "Tabriklayman 🥳\n\n"
             "Siz `Rus tilida 2024-yilda gapiring!` nomli kursimga muavvafaqiyatli ro'yxatdan o'tdingiz. Tez orada menejerlar sizni chekingizni tekshirib, aloqaga chiqadi 🧑🏻‍💻.\n\n"
-            "Savollaringiz bo'lsa yozishingiz mumkin 👇😊\n\n"
+            "<i>Savollaringiz bo'lsa yozishingiz mumkin 👇😊</i>\n\n"
             "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manager",)
 
         return -1
