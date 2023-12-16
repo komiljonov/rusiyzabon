@@ -169,8 +169,7 @@ class Bot(Post):
             "Tabriklayman 🥳\n\n"
             "Siz `Rus tilida 2024-yilda gapiring!` nomli kursimga muavvafaqiyatli ro'yxatdan o'tdingiz. Tez orada menejerlar sizni chekingizni tekshirib, aloqaga chiqadi 🧑🏻‍💻.\n\n"
             "Savollaringiz bo'lsa yozishingiz mumkin 👇😊\n\n"
-            "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manage
-        r",)
+            "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manager",)
 
         return -1
 
