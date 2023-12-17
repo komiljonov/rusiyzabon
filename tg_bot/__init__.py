@@ -109,10 +109,12 @@ class Bot(Post):
         user.save()
 
         await tgUser.send_message(
-            "📞 Sizga qo'ng'iroq qilishimiz uchun raqamingizni qoldiring!",
+            "📞 Sizga qo'ng'iroq qilishimiz uchun raqamingizni qoldiring!\n\n"
+                "<i>(Masalan: +998997774455)</i>",
             reply_markup=ReplyKeyboardMarkup(
                 [[KeyboardButton("Raqamni yuborish", request_contact=True)]]
             ),
+            parse_mode="HTML"
         )
         return NUMBER
 
@@ -169,7 +171,7 @@ class Bot(Post):
             "Tabriklayman 🥳\n\n"
             "Siz `Rus tilida 2024-yilda gapiring!` nomli kursimga muavvafaqiyatli ro'yxatdan o'tdingiz. Tez orada menejerlar sizni chekingizni tekshirib, aloqaga chiqadi 🧑🏻‍💻.\n\n"
             "<i>Savollaringiz bo'lsa yozishingiz mumkin 👇😊</i>\n\n"
-            "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manager",)
+            "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manager",parse_mode="HTML")
 
         return -1
 
