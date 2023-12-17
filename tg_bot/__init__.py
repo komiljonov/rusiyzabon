@@ -109,7 +109,7 @@ class Bot(Post):
 
         await tgUser.send_message(
             "<b>📞 Sizga qo'ng'iroq qilishimiz uchun raqamingizni qoldiring!\n\n"
-                "<i>(Masalan: +998997774455)</i><b>",
+                "<i>(Masalan: +998997774455)</i></b>",
             reply_markup=ReplyKeyboardMarkup(
                 [[KeyboardButton("Raqamni yuborish", request_contact=True)]]
             ),
