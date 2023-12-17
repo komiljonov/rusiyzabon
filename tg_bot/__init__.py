@@ -92,14 +92,13 @@ class Bot(Post):
 
         if not user.is_registered:
             await tgUser.send_message(
-                "🖊 Iltimos ismingizni yuboring!", reply_markup=ReplyKeyboardRemove()
+                "<b>🖊 Iltimos ismingizni yuboring!</b>", reply_markup=ReplyKeyboardRemove(),parse_mode="HTML"
             )
             return NAME
 
         await tgUser.send_message(
-            "Qaytadan  ro'yxatdan o'tmoqchi bo'sa 👇\n\n"
-            "❌ Qaytadan ro'yxatdan o'tib bo'lmaydi\n\n"
-            "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manager")
+            "<b>❌ Qaytadan ro'yxatdan o'tib bo'lmaydi</b>\n\n"
+            "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manager",parse_mode="HTML")
         return -1
 
     async def name(self, update: Update, context: CallbackContext):
@@ -109,8 +108,8 @@ class Bot(Post):
         user.save()
 
         await tgUser.send_message(
-            "📞 Sizga qo'ng'iroq qilishimiz uchun raqamingizni qoldiring!\n\n"
-                "<i>(Masalan: +998997774455)</i>",
+            "<b>📞 Sizga qo'ng'iroq qilishimiz uchun raqamingizni qoldiring!\n\n"
+                "<i>(Masalan: +998997774455)</i><b>",
             reply_markup=ReplyKeyboardMarkup(
                 [[KeyboardButton("Raqamni yuborish", request_contact=True)]]
             ),
@@ -135,8 +134,9 @@ class Bot(Post):
         # await tgUser.send_message("https://youtu.be/s0jYB3v3k0M")
 
         await tgUser.send_message(
-            "📩 To'lovni tasdiqlovchi chekni yuboring!",
+            "<b>📩 To'lovni tasdiqlovchi chekni yuboring!</b>",
             reply_markup=ReplyKeyboardRemove(),
+            parse_mode="HTML"
         )
 
         return CHECK
@@ -168,8 +168,8 @@ class Bot(Post):
         )
 
         await tgUser.send_message(
-            "Tabriklayman 🥳\n\n"
-            "Siz `Rus tilida 2024-yilda gapiring!` nomli kursimga muavvafaqiyatli ro'yxatdan o'tdingiz. Tez orada menejerlar sizni chekingizni tekshirib, aloqaga chiqadi 🧑🏻‍💻.\n\n"
+            "<b>Tabriklayman 🥳\n\n"
+            "Siz <b>`Rus tilida 2024-yilda gapiring!`</b> nomli kursimga muavvafaqiyatli ro'yxatdan o'tdingiz. Tez orada menejerlar sizni chekingizni tekshirib, aloqaga chiqadi 🧑🏻‍💻.\n\n"
             "<i>Savollaringiz bo'lsa yozishingiz mumkin 👇😊</i>\n\n"
             "🧑🏻‍💻 Biz bilan bog'lanish uchun @bic_manager",parse_mode="HTML")
 
